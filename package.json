@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "12.16.1"
+    "node": ">=12.16.1"
   },
   "dependencies": {
     "@ledgerhq/hw-app-eth": "^5.27.2",
