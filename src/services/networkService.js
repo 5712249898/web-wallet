@@ -32,6 +32,8 @@ import Web3 from 'web3';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import WalletLink from 'walletlink';
 
+import '@metamask/legacy-web3'
+
 import store from 'store';
 import { getToken } from 'actions/tokenAction';
 import { WebWalletError } from 'services/errorService';
@@ -488,7 +490,8 @@ class NetworkService {
           JSONBigNumber.stringify(typedData)
         ]
       );
-      return signature;
+      //return signature; //works for Web3.js 1.0.0-beta 55
+      return signature.result; // Web.js 1.3.4 changes return of .send() - basically adds extra fields to the return
     } catch (error) {
       if (!isExpectedSignTypedV3Error(error.message)) {
         // not an expected error
